@@ -29,3 +29,5 @@ app.get("/test_table", async (req, res) => {
 app.listen(port, () => {
   console.log(`App is available on port: ${port}`);
 });
+
+// FavQs API
