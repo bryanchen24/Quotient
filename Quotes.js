@@ -39,6 +39,6 @@ async function searchQuote() {
     },
   });
 
-  const responseJson = response.json();
+  const responseJson = await response.json();
   console.log(responseJson);
 }
