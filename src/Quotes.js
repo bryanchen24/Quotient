@@ -30,6 +30,12 @@
 //   //   return false;
 // }
 
+const express = require("express");
+const bodyParser = require("body-parser");
+const supabaseClient = require("@supabase/supabase-js");
+const dotenv = require("dotenv");
+
+// FavQs API
 async function searchQuote() {
   const response = await fetch(`https://favqs.com/api/quotes/?filter=happy`, {
     method: "GET",
