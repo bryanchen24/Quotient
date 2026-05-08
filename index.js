@@ -22,11 +22,40 @@ app.get("/", (req, res) => {
   res.sendFile("public/Home.html", { root: __dirname });
 });
 
-app.get("/test_table", async (req, res) => {
-  console.log("Testing Testing 1 2 3");
+// app.get("/api/quotes/?filter=happy", (req, res) => {
+//   const quote = searchQuote();
+//   res.send(quote);
+// });
+
+app.get("/getQOTD", async (req, res) => {
+  const link = "https://favqs.com/api/qotd";
+
+  const response = await fetch(`${link}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Token token=${process.env.FAVQ_KEY}`,
+    },
+  });
+
+  const responseJson = await response.json();
+  res.json(responseJson);
+  console.log(await response.json());
+});
+
+app.get("/searchQuoteKeyword", async (req, res) => {
+  console.log("Search Quote!");
+  console.log(`Request: ${JSON.stringify(req.body)}`);
+
+  const keyword = req.body.searchQuote;
+
+  const response = await fetch(
+    `https://favqs.com/api/quotes/?filter=${keyword}`,
+  );
+  const data = await response.json();
+
+  res.json(data);
 });
 
 app.listen(port, () => {
   console.log(`App is available on port: ${port}`);
 });
-

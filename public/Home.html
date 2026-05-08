@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quotient Home Page</title>
 
-    <script src="src/Quotes.js" defer></script>
+    <script src="Quote.js" defer></script>
   </head>
   <body>
     <h1>WELCOME HOME</h1>
 
     <!-- Search for Quotes -->
-    <!-- <form
+    <form
       onsubmit="
-        searchQuote();
+        // searchQuote();
         return false;
       "
     >
       <label for="searchQuote"></label>
       <input type="text" id="searchQuote" />
       <input type="submit" value="Get Quote" />
-    </form> -->
+    </form>
 
-    <button
+    <input
+      type="button"
       onclick="
-        return searchQuote();
+        quote();
         return false;
       "
-    >
-      TEST BUTTON
-    </button>
+      value="TEST BUTTON"
+    />
 
     <!-- Display Quotes Feed -->
     <div id="quoteFeed">
