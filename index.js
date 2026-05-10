@@ -18,15 +18,17 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
+// -------------------------
+//        Home Page
+// -------------------------
 app.get("/", (req, res) => {
   res.sendFile("public/Home.html", { root: __dirname });
 });
 
-// app.get("/api/quotes/?filter=happy", (req, res) => {
-//   const quote = searchQuote();
-//   res.send(quote);
-// });
-
+// -------------------------
+//      Look Up Quotes
+// -------------------------
+// Quote of the day
 app.get("/getQOTD", async (req, res) => {
   const link = "https://favqs.com/api/qotd";
 
@@ -39,20 +41,26 @@ app.get("/getQOTD", async (req, res) => {
 
   const responseJson = await response.json();
   res.json(responseJson);
-  console.log(await response.json());
 });
 
+// Quote by keyword
 app.get("/searchQuoteKeyword", async (req, res) => {
   console.log("Search Quote!");
-  console.log(`Request: ${JSON.stringify(req.body)}`);
+  // console.log(`Request: ${JSON.stringify(req.body)}`);
 
-  const keyword = req.body.searchQuote;
+  const keyword = req.query.keyword;
+  const link = `https://favqs.com/api/quotes/?filter=${keyword}`;
 
-  const response = await fetch(
-    `https://favqs.com/api/quotes/?filter=${keyword}`,
-  );
+  const response = await fetch(link, {
+    method: "GET",
+    headers: {
+      Authorization: `Token token=${process.env.FAVQ_KEY}`,
+    },
+  });
+
   const data = await response.json();
 
+  // sedn to front end
   res.json(data);
 });
 
