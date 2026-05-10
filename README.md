@@ -23,4 +23,4 @@ This is primarly for browser use,ient inspires users to take on their literary c
 
 This is primarly for browser use,
 
-## Deverloper Manual
+## Developer Manual
