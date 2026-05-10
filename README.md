@@ -8,19 +8,4 @@ This is primarly for browser use, specifically Google Chrome. Other browsers may
 
 Link to [Developer Manual](#developer-manual)
 
-ient inspires users to take on their literary challenges. Sometimes, we blank on our writing, or we are simply feeling down and want some motivation/inspiration. With Quotient, look up any keyword or author, and you are presented with a plethora of quotes that hopefully will inspire you.
-
-This is primarly for browser use,ient inspires users to take on their literary challenges. Sometimes, we blank on our writing, or we are simply feeling down and want some motivation/inspiration. With Quotient, look up any keyword or author, and you are presented with a plethora of quotes that hopefully will inspire you.
-
-This is primarly for browser use,
-ient inspires users to take on their literary challenges. Sometimes, we blank on our writing, or we are simply feeling down and want some motivation/inspiration. With Quotient, look up any keyword or author, and you are presented with a plethora of quotes that hopefully will inspire you.
-
-This is primarly for browser use,ient inspires users to take on their literary challenges. Sometimes, we blank on our writing, or we are simply feeling down and want some motivation/inspiration. With Quotient, look up any keyword or author, and you are presented with a plethora of quotes that hopefully will inspire you.
-
-This is primarly for browser use,ient inspires users to take on their literary challenges. Sometimes, we blank on our writing, or we are simply feeling down and want some motivation/inspiration. With Quotient, look up any keyword or author, and you are presented with a plethora of quotes that hopefully will inspire you.
-
-This is primarly for browser use,ient inspires users to take on their literary challenges. Sometimes, we blank on our writing, or we are simply feeling down and want some motivation/inspiration. With Quotient, look up any keyword or author, and you are presented with a plethora of quotes that hopefully will inspire you.
-
-This is primarly for browser use,
-
 ## Developer Manual
