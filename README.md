@@ -6,4 +6,6 @@ Quotient inspires users to take on their literary challenges. Sometimes, we blan
 
 This is primarly for browser use, specifically Google Chrome. Other browsers may not be compatible with all of the features.
 
-Link to Developer Manual
+Link to [Developer Manual](##developer-manual)
+
+## Deverloper Manual
