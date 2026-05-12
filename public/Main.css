@@ -61,6 +61,13 @@ body {
   /* display: flex; */
   flex: 1;
   width: 10px;
+  text-align: center;
+}
+
+.side-bar-container img {
+  width: 100px;
+  text-align: center;
+  margin: 8px 0;
 }
 
 /*===============================================================*/
