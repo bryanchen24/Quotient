@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  /* flex-direction: column; */
   height: 100vh;
 }
 
@@ -13,29 +12,33 @@ body {
 /************************/
 .main-content {
   background-color: hsl(0, 0%, 97%);
-  /* display: flex; */
-  /* flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   /* flex: 3; */
-  width: 85%;
+  width: 100%;
 }
 
-/**********************/
-/* SEARCH BAR ELEMENT */
-/**********************/
+/**************************/
+/* NAV/SEARCH BAR ELEMENT */
+/**************************/
 .nav-bar-container {
-  background-color: hsl(0, 74%, 42%);
-  height: 3em;
-  margin: 0;
+  display: flex;
+  background-color: hsla(0, 50%, 34%, 0.877);
+  height: 3.5em;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.search-bar {
-  /* width: 500px; */
-  height: 1.5em;
+#search-bar {
+  display: flex;
+  width: 50vw;
+  height: 2.25em;
   border-radius: 12px;
-  /* float: left; */
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
 }
 
 /**************/
@@ -43,12 +46,41 @@ body {
 /**************/
 .quote-feed {
   border: 1px black solid;
-  padding: 10px;
   flex: 3;
+  width: 500px;
+  /* max-width: 500px; */
+  margin: 25px auto;
 }
 
 .feed-box {
   border: 1px red solid;
+  border-radius: 12px;
+  height: 350px;
+  position: relative;
+  padding: 16px;
+}
+
+.quote-interact {
+  /* border: 1px solid black; */
+
+  /* make the interaction area stick to bottom */
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+
+  border-radius: 12px; /* remove later ,just for visibility for now */
+
+  width: 90%;
+  height: 3.5em;
+  margin: auto;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.quote-interact img {
+  width: 50px;
+  /* needs to be centered */
 }
 
 /*===============================================================*/
@@ -57,16 +89,21 @@ body {
 /* SIDE BAR */
 /************/
 .side-bar-container {
-  border: 1px hsla(0, 0%, 54%, 0.616) solid;
-  /* display: flex; */
   flex: 1;
-  width: 10px;
   text-align: center;
+  flex: 0 0 200px; /* sets the width to 200px */
+  box-shadow: 0px -2px 2px rgba(34, 34, 34, 0.692);
+  margin-right: 1px;
+}
+
+.side-bar-container ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
 }
 
 .side-bar-container img {
-  width: 100px;
-  text-align: center;
+  width: 125px;
   margin: 8px 0;
 }
 
