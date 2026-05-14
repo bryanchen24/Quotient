@@ -69,3 +69,31 @@ app.listen(port, () => {
 });
 
 // Load the quotes for the feed
+app.get("/loadQuotes", async (req, res) => {
+  console.log("Loading Quotes!");
+
+  let random_page = Math.random() * (100 - 1) + 1;
+
+  const link = `https://favqs.com/api/quotes/?page${random_page}`;
+
+  const response = await fetch(link, {
+    method: "GET",
+    headers: {
+      Authorization: `Token token=${process.env.FAVQ_KEY}`,
+    },
+  });
+
+  const data = await response.json();
+
+  // sedn to front end
+  res.json(data);
+});
+
+// Update Database
+app.get("/saveQuote", async (req, res) => {
+
+});
+
+app.get("likeQuote", async (req, res) => {
+
+});

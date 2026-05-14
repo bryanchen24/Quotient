@@ -7,12 +7,20 @@
 
     <link rel="stylesheet" href="Main.css" />
 
+    <!-- Interaction icons -->
     <script
       src="https://kit.fontawesome.com/17b497edf4.js"
       crossorigin="anonymous"
     ></script>
 
     <script src="Quote.js" defer></script>
+
+    <!-- Carousel (Swiper JS) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   </head>
   <body>
     <!-- Universal Side Bar -->
@@ -21,8 +29,11 @@
       <nav>
         <ul>
           <li>Home</li>
+          <!-- scroll through quotes, interact with them, and search for quotes -->
           <li>About</li>
-          <li>Popular</li>
+          <!-- gives the about section -->
+          <li>Saved</li>
+          <!-- display the list of saved quotes -->
         </ul>
       </nav>
     </aside>
@@ -57,11 +68,15 @@
         </form>
       </div>
 
-      <!-- Display Quotes Feed -->
+      <!-- Displays the Quote of the Day -->
       <div class="quote-feed">
-        <div class="feed-box">
-          <h3>Insert the quote here</h3>
-          <h4>Insert the author here</h4>
+        <!-- Quote of the Day -->
+        <div class="quotes-section-text">
+          <h1>Quote of the Day</h1>
+        </div>
+        <div class="feed-box qotd-feed">
+          <h3 class="quote"></h3>
+          <h4 class="author">Insert the author here</h4>
           <!-- add feature to click on author to be able to act as it is searching it up -->
           <!-- same for a word in the quote as well! -->
 
@@ -73,7 +88,7 @@
             </div>
             <div class="comment-quote">
               <!-- <img src="/assets/interactions/comment.png" /> -->
-              <i class="fa-regular fa-comment" style="font-size: 50px"></i>
+              <!-- <i class="fa-regular fa-comment" style="font-size: 50px"></i> -->
               <!-- <i class="fa-solid fa-comment"></i> -->
             </div>
             <div class="fav-quote">
@@ -83,10 +98,322 @@
             </div>
           </div>
         </div>
+
+        <!-- Discover Quotes Section (Carousel) -->
+        <div class="quotes-section-text">
+          <h1>Discover Quotes!</h1>
+        </div>
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote here</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote here</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote heresdfsdsdffd</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote here</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote here</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote here</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote here</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote here</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="feed-box">
+                <h3>Insert the quote here</h3>
+                <h4>Insert the author here</h4>
+                <!-- add feature to click on author to be able to act as it is searching it up -->
+                <!-- same for a word in the quote as well! -->
+
+                <div class="quote-interact">
+                  <div class="like-quote">
+                    <!-- <img src="/assets/interactions/heart_default.png" /> -->
+                    <i class="fa-regular fa-heart" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-heart" style="font-size: 50px"></i> -->
+                  </div>
+                  <div class="comment-quote">
+                    <!-- <img src="/assets/interactions/comment.png" /> -->
+                    <!-- <i
+                      class="fa-regular fa-comment"
+                      style="font-size: 50px"
+                    ></i> -->
+                    <!-- <i class="fa-solid fa-comment"></i> -->
+                  </div>
+                  <div class="fav-quote">
+                    <!-- <img src="/assets/interactions/favorite_default.png" /> -->
+                    <i class="fa-regular fa-star" style="font-size: 50px"></i>
+                    <!-- <i class="fa-solid fa-star"></i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
       </div>
     </main>
 
-    <!-- Clouds Banner -->
+    <script>
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        autoplay: {
+          delay: "5000",
+        },
+      });
+    </script>
+
+    <!-- Butterfly Background -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.birds.min.js"></script>
     <script>

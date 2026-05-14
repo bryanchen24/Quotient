@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 /*===============================================================*/
@@ -42,18 +43,25 @@ body {
 }
 
 .vanta-canvas {
-  /* height: 10px; */
+  position: fixed;
 }
 
 /**************/
 /* QUOTE FEED */
 /**************/
+.quotes-section-text {
+  color: white;
+  text-align: center;
+  font-size: 28px;
+}
+
 .quote-feed {
   /* border: 1px black solid; */
   flex: 3;
   width: 500px;
   /* max-width: 500px; */
   margin: 25px auto;
+  height: 100vh;
 }
 
 .feed-box {
@@ -65,6 +73,13 @@ body {
   padding: 16px;
   background-color: hsla(261, 28%, 32%, 0.863);
   color: white;
+  margin: 32px 0px;
+}
+
+.feed-box h3,
+h4 {
+  font-size: 18px;
+  text-align: center;
 }
 
 .quote-interact {
