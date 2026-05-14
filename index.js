@@ -67,3 +67,5 @@ app.get("/searchQuoteKeyword", async (req, res) => {
 app.listen(port, () => {
   console.log(`App is available on port: ${port}`);
 });
+
+// Load the quotes for the feed
