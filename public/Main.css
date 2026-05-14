@@ -23,7 +23,7 @@ body {
 /**************************/
 .nav-bar-container {
   display: flex;
-  background-color: hsla(0, 50%, 34%, 0.877);
+  background-color: hsla(0, 50%, 34%, 0.452);
   height: 4em;
   align-items: center;
   justify-content: center;
@@ -39,6 +39,10 @@ body {
   justify-content: center;
   align-items: center;
   padding: 8px;
+}
+
+.vanta-canvas {
+  /* height: 10px; */
 }
 
 /**************/
@@ -59,6 +63,8 @@ body {
   height: 350px;
   position: relative;
   padding: 16px;
+  background-color: hsla(261, 38%, 23%, 0.781);
+  color: white;
 }
 
 .quote-interact {
@@ -97,8 +103,10 @@ body {
   flex: 1;
   text-align: center;
   flex: 0 0 200px; /* sets the width to 200px */
-  box-shadow: 0px -2px 2px rgba(34, 34, 34, 0.692);
+  /* box-shadow: 0px -2px 2px rgba(34, 34, 34, 0.692); */
+  box-shadow: 0px -2px 2px rgba(255, 255, 255, 0.692);
   margin-right: 1px;
+  background-color: rgba(255, 255, 255, 0.836);
 }
 
 .side-bar-container ul {
