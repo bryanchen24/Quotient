@@ -156,6 +156,11 @@ body {
   font-size: 24px;
 }
 
+.side-bar-container a {
+  color: black;
+  text-decoration: none;
+}
+
 .side-bar-container ul {
   list-style: none;
   text-align: center;

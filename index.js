@@ -98,25 +98,36 @@ app.get("/loadQuotes", async (req, res) => {
 //      & Update Database
 // ---------------------------
 app.post("/likeQuote", async (req, res) => {
-  // const link = ``;
-  // await fetch(`${link}`);
+  console.log("Adding quote to like");
+  console.log(`Request: ${JSON.stringify(req.body)}`);
 
   const quote_id = req.body.quote_id;
   const quote_text = req.body.quote_text;
   const quote_author = req.body.quote_author;
 
-  const { data, error } = await supabase.from("liked_quotes").select();
+  const { data, error } = await supabase
+    .from("liked_quotes")
+    .insert({
+      quote_id: `${quote_id}`,
+      quote_text: `${quote_text}`,
+      quote_author: `${quote_author}`,
+    })
+    .select();
 
   if (error) {
     console.log(`Error: ${error}`);
     res.statusCode = 500;
     res.send(error);
+  } else {
+    res.json(data);
   }
-
-  console.log("Received Data: ", data);
 });
 
 app.post("/saveQuote", async (req, res) => {
+  const quote_id = req.body.quote_id;
+  const quote_text = req.body.quote_text;
+  const quote_author = req.body.quote_author;
+
   const link = ``;
   await fetch(`${link}`);
 });

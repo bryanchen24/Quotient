@@ -23,17 +23,24 @@ async function quoteKeyword() {
 async function loadQotd() {
   let quote = "";
   let author = "";
+  let id = "";
 
   await fetch("/getQOTD")
     .then((result) => result.json())
     .then((resultJson) => {
       quote = resultJson.quote.body;
       author = resultJson.quote.author;
+      id = resultJson.quote.id;
     });
 
   document
     .getElementsByClassName("qotd-feed")[0]
     .getElementsByTagName("h3")[0].innerHTML = `${quote}`;
+
+  document
+    .getElementsByClassName("qotd-feed")[0]
+    .getElementsByTagName("h3")[0]
+    .setAttribute("quote_id", `${id}`);
 
   document
     .getElementsByClassName("qotd-feed")[0]
@@ -67,6 +74,9 @@ async function loadQuotes() {
 
         quote_boxes[i].getElementsByClassName("quote")[0].innerHTML =
           `${quote}`;
+        quote_boxes[i]
+          .getElementsByClassName("quote")[0]
+          .setAttribute("quote_id", `${id}`);
         quote_boxes[i].getElementsByClassName("author")[0].innerHTML =
           `${author}`;
       }
@@ -78,14 +88,58 @@ window.onload = function () {
   loadQuotes();
 };
 
-// change color of the like button
-function toggleLike() {
-  // color: "red"
+// change color of the like button (for QOTD)
+async function toggleLikeQOTD(heart) {
+  heart.style.color = "red";
+
+  const feed = heart.closest(".qotd-feed");
+  const quote_id = feed.querySelector(".quote").getAttribute("quote_id");
+  const quote_text = feed.querySelector(".quote").textContent;
+  const quote_author = feed.querySelector(".author").textContent;
+
+  // console.log(id);
+
+  // console.log(quote.innerHTML);
+
+  await fetch("/likeQuote", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      quote_id,
+      // : `${quote_id}`,
+      quote_text,
+      // : `${quote_text}`,
+      quote_author,
+      // : `${quote_author}`,
+    }),
+  }).then((result) => result.json());
+}
+
+async function toggleLike(heart) {
+  heart.style.color = "red";
+
+  const feed = heart.closest(".feed-box");
+  const quote = feed.querySelector(".quote");
+
+  console.log(quote.innerHTML);
+
+  // await fetch('/likeQuote', {
+  //   method="POST",
+  //   body: JSON.stringify({
+  //     quote_id: ``,
+  //     quote_text: ``,
+  //     quote_author: ``,
+  //   })
+  // }).then((result) => result.json());
 }
 
 // change the color of the save button
-function toggleSave() {
-  // color: "yellow"
+async function toggleSave(star) {
+  star.style.color = "yellow";
+
+  // store the quote in saved (id, text, author)
 }
 
 // --------------------------
