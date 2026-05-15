@@ -14,13 +14,6 @@
     ></script>
 
     <script src="Quote.js" defer></script>
-
-    <!-- Carousel (Swiper JS)
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> -->
   </head>
   <body>
     <!-- Universal Side Bar -->
@@ -28,11 +21,11 @@
       <img src="assets/logo_brittany.png" />
       <nav>
         <ul>
-          <li>Home</li>
+          <li><a href="/Home.html">Home</a></li>
           <!-- scroll through quotes, interact with them, and search for quotes -->
-          <li>About</li>
+          <li><a href="/About.html">About</a></li>
           <!-- gives the about section -->
-          <li>Saved</li>
+          <li><a href="/Saved.html">Saved</a></li>
           <!-- display the list of saved quotes -->
         </ul>
       </nav>
@@ -48,29 +41,7 @@
       </div>
 
       <!-- Displays the Quote of the Day -->
-      <div class="quote-feed">
-        <!-- Quote of the Day -->
-        <div class="quotes-section-text">
-          <h1>Quote of the Day</h1>
-        </div>
-        <div class="qotd-feed">
-          <h3 class="quote"></h3>
-          <h4 class="author"></h4>
-          <div class="quote-interact">
-            <div class="like-quote" onclick="toggleLike()">
-              <i class="fa-regular fa-heart" style="display: block"></i>
-              <i class="fa-solid fa-heart" style="display: none"></i>
-              <!-- to toggle bewteen them, just change the display,
-               check if one is display none, and make the other display block -->
-            </div>
-
-            <div class="fav-quote">
-              <i class="fa-regular fa-star" style="font-size: 50px"></i>
-              <!-- <i class="fa-solid fa-star"></i> -->
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="quote-feed"></div>
     </main>
 
     <script>

@@ -1,8 +1,5 @@
 // --------------------------
 //         Front End
-
-const { application } = require("express");
-
 // --------------------------
 async function quote() {
   await fetch("/getQOTD")
