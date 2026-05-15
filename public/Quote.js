@@ -10,12 +10,13 @@ async function quote() {
 }
 
 async function quoteKeyword() {
-  const keyword = document.getElementById("searchQuote").value;
+  let keyword = document.getElementById("search-bar").value;
+  console.log(keyword);
 
   await fetch(`/searchQuoteKeyword?keyword=${keyword}`)
     .then((result) => result.json())
     .then((resultJson) => {
-      console.log(resultJson.quotes[0].body);
+      console.log(resultJson.quotes.body);
     });
 }
 
@@ -97,23 +98,25 @@ async function toggleLikeQOTD(heart) {
   const quote_text = feed.querySelector(".quote").textContent;
   const quote_author = feed.querySelector(".author").textContent;
 
-  // console.log(id);
-
-  // console.log(quote.innerHTML);
+  // console.log(
+  //   "Id:",
+  //   quote_id,
+  //   "\nQuote:",
+  //   quote_text,
+  //   "\nAuthor:",
+  //   quote_author,
+  // );
 
   await fetch("/likeQuote", {
     method: "POST",
+    body: JSON.stringify({
+      quote_id: `${quote_id}`,
+      quote_text: `${quote_text}`,
+      quote_author: `${quote_author}`,
+    }),
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify({
-      quote_id,
-      // : `${quote_id}`,
-      quote_text,
-      // : `${quote_text}`,
-      quote_author,
-      // : `${quote_author}`,
-    }),
   }).then((result) => result.json());
 }
 
@@ -121,25 +124,63 @@ async function toggleLike(heart) {
   heart.style.color = "red";
 
   const feed = heart.closest(".feed-box");
-  const quote = feed.querySelector(".quote");
+  const quote_id = feed.querySelector(".quote").getAttribute("quote_id");
+  const quote_text = feed.querySelector(".quote").textContent;
+  const quote_author = feed.querySelector(".author").textContent;
 
-  console.log(quote.innerHTML);
-
-  // await fetch('/likeQuote', {
-  //   method="POST",
-  //   body: JSON.stringify({
-  //     quote_id: ``,
-  //     quote_text: ``,
-  //     quote_author: ``,
-  //   })
-  // }).then((result) => result.json());
+  await fetch("/likeQuote", {
+    method: "POST",
+    body: JSON.stringify({
+      quote_id: `${quote_id}`,
+      quote_text: `${quote_text}`,
+      quote_author: `${quote_author}`,
+    }),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((result) => result.json());
 }
 
-// change the color of the save button
+async function toggleSaveQOTD(star) {
+  star.style.color = "yellow";
+
+  const feed = star.closest(".qotd-feed");
+  const quote_id = feed.querySelector(".quote").getAttribute("quote_id");
+  const quote_text = feed.querySelector(".quote").textContent;
+  const quote_author = feed.querySelector(".author").textContent;
+
+  await fetch("/saveQuote", {
+    method: "POST",
+    body: JSON.stringify({
+      quote_id: `${quote_id}`,
+      quote_text: `${quote_text}`,
+      quote_author: `${quote_author}`,
+    }),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((result) => result.json());
+}
+
 async function toggleSave(star) {
   star.style.color = "yellow";
 
-  // store the quote in saved (id, text, author)
+  const feed = star.closest(".feed-box");
+  const quote_id = feed.querySelector(".quote").getAttribute("quote_id");
+  const quote_text = feed.querySelector(".quote").textContent;
+  const quote_author = feed.querySelector(".author").textContent;
+
+  await fetch("/saveQuote", {
+    method: "POST",
+    body: JSON.stringify({
+      quote_id: `${quote_id}`,
+      quote_text: `${quote_text}`,
+      quote_author: `${quote_author}`,
+    }),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((result) => result.json());
 }
 
 // --------------------------
@@ -147,3 +188,20 @@ async function toggleSave(star) {
 // --------------------------
 // add quote to database if liked
 // if quote already exists, then increase like count
+async function loadSaved() {
+  const quote_feed = document.getElementById('quote-feed');
+
+  await fetch("/loadSaved")
+    .then((response) => response.json())
+    .then((responseJson) => {
+      const total_quotes = responseJson.length;
+      for (let quote_box = 0; quote_box < total_quotes; quote_box++) {
+        // for each saved quotes, create a quote box and load it
+
+      }
+    });
+}
+
+if (window.location.pathname == "/Saved.html") {
+  window.onload = loadSaved();
+}

@@ -63,13 +63,18 @@
       <!-- Universal Search Bar -->
       <!-- Search for any keyword, and it will return both the author and quotes results -->
       <div class="nav-bar-container">
-        <form id="search-bar" onsubmit="">
+        <form
+          onsubmit="
+            quoteKeyword();
+            return false;
+          "
+        >
           <input type="search" id="search-bar" required />
         </form>
       </div>
 
       <!-- Displays the Quote of the Day -->
-      <div class="quote-feed">
+      <div id="quote-feed">
         <!-- Quote of the Day -->
         <div class="quotes-section-text">
           <h1>Quote of the Day</h1>
@@ -82,7 +87,7 @@
               <i class="fa-solid fa-heart" style="display: block"></i>
             </div>
 
-            <div class="fav-quote" onclick="toggleSave(this)">
+            <div class="fav-quote" onclick="toggleSaveQOTD(this)">
               <i class="fa-solid fa-star" style="font-size: 50px"></i>
               <!-- <i class="fa-solid fa-star"></i> -->
             </div>

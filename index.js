@@ -43,15 +43,20 @@ app.get("/getQOTD", async (req, res) => {
   res.json(responseJson);
 });
 
+// -------------------------
+//     Search Up Quotes
+// -------------------------
 // Quote by keyword
 app.get("/searchQuoteKeyword", async (req, res) => {
   console.log("Search Quote!");
-  // console.log(`Request: ${JSON.stringify(req.body)}`);
+  console.log(`Request: ${JSON.stringify(req.body)}`);
 
-  const keyword = req.query.keyword;
+  const keyword = req.query.keyword; //.replace(/\s+$/, "");
   const link = `https://favqs.com/api/quotes/?filter=${keyword}`;
 
-  const response = await fetch(link, {
+  console.log(keyword);
+
+  const response = await fetch(`${link}`, {
     method: "GET",
     headers: {
       Authorization: `Token token=${process.env.FAVQ_KEY}`,
@@ -80,6 +85,7 @@ app.get("/loadQuotes", async (req, res) => {
     method: "GET",
     headers: {
       Authorization: `Token token=${process.env.FAVQ_KEY}`,
+      "Content-Type": "application/json",
     },
   });
 
@@ -88,10 +94,6 @@ app.get("/loadQuotes", async (req, res) => {
   // sedn to front end
   res.json(data);
 });
-
-// -------------------------
-//      Look Up Quotes
-// -------------------------
 
 // ---------------------------
 //     Interact w/ Quotes
@@ -119,15 +121,52 @@ app.post("/likeQuote", async (req, res) => {
     res.statusCode = 500;
     res.send(error);
   } else {
+    console.log("Recieved Data:", data.length);
     res.json(data);
   }
 });
 
 app.post("/saveQuote", async (req, res) => {
+  console.log("Adding quote to saved");
+  console.log(`Request: ${JSON.stringify(req.body)}`);
+
   const quote_id = req.body.quote_id;
   const quote_text = req.body.quote_text;
   const quote_author = req.body.quote_author;
 
-  const link = ``;
-  await fetch(`${link}`);
+  const { data, error } = await supabase
+    .from("saved_quotes")
+    .insert({
+      quote_id: `${quote_id}`,
+      quote_text: `${quote_text}`,
+      quote_author: `${quote_author}`,
+    })
+    .select();
+
+  if (error) {
+    console.log(`Error: ${error}`);
+    res.statusCode = 500;
+    res.send(error);
+  } else {
+    console.log("Recieved Data:", data.length);
+    res.json(data);
+  }
+});
+
+//----------------------------
+//   List the Saved Quotes
+//----------------------------
+app.get("/loadSaved", async (req, res) => {
+  console.log("Returning saved quotes");
+
+  const { data, error } = await supabase.from("liked_quotes").select();
+
+  if (error) {
+    console.log(`Error: ${error}`);
+    res.statusCode = 500;
+    res.send(error);
+  } else {
+    console.log("Recieved Data:", data.length);
+    res.json(data);
+  }
 });
