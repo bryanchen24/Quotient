@@ -159,7 +159,7 @@ app.post("/saveQuote", async (req, res) => {
 app.get("/loadSaved", async (req, res) => {
   console.log("Returning saved quotes");
 
-  const { data, error } = await supabase.from("liked_quotes").select();
+  const { data, error } = await supabase.from("saved_quotes").select();
 
   if (error) {
     console.log(`Error: ${error}`);

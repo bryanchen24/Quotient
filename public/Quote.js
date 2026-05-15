@@ -84,11 +84,12 @@ async function loadQuotes() {
     });
 }
 
-window.onload = function () {
-  loadQotd();
-  loadQuotes();
-};
-
+if (window.location.pathname == "/Home.html") {
+  window.onload = function () {
+    loadQotd();
+    loadQuotes();
+  };
+}
 // change color of the like button (for QOTD)
 async function toggleLikeQOTD(heart) {
   heart.style.color = "red";
@@ -189,17 +190,57 @@ async function toggleSave(star) {
 // add quote to database if liked
 // if quote already exists, then increase like count
 async function loadSaved() {
-  const quote_feed = document.getElementById('quote-feed');
+  const quote_feed = document.getElementById("quote-feed");
 
   await fetch("/loadSaved")
     .then((response) => response.json())
     .then((responseJson) => {
+      console.log(responseJson);
+
       const total_quotes = responseJson.length;
       for (let quote_box = 0; quote_box < total_quotes; quote_box++) {
-        // for each saved quotes, create a quote box and load it
+        let feed_box = document.createElement("div");
+        feed_box.setAttribute("class", "feed-box");
 
+        let quote = document.createElement("h3");
+        quote.setAttribute("class", "quote");
+        quote.innerHTML = responseJson[quote_box].quote_text;
+        quote.setAttribute("quote_id", `${responseJson[quote_box].quote_id}`);
+        feed_box.appendChild(quote);
+
+        let author = document.createElement("h4");
+        author.setAttribute("class", "author");
+        author.innerHTML = responseJson[quote_box].quote_author;
+        feed_box.appendChild(author);
+
+        let quote_interact = document.createElement("div");
+        quote_interact.setAttribute("class", "quote-interact");
+        feed_box.appendChild(quote_interact);
+
+        let like_quote = document.createElement("like-quote");
+        like_quote.setAttribute("class", "like-quote");
+        like_quote.setAttribute("onclick", "toggleLike(this)");
+
+        let like_quote_icon = document.createElement("i");
+        like_quote_icon.setAttribute("class", "fa-solid fa-heart");
+        like_quote.appendChild(like_quote_icon);
+
+        let save_quote = document.createElement("like-quote");
+        save_quote.setAttribute("class", "fav-quote");
+        save_quote.setAttribute("onclick", "toggleSave(this)");
+
+        let save_quote_icon = document.createElement("i");
+        save_quote_icon.setAttribute("class", "fa-solid fa-star");
+        save_quote.appendChild(save_quote_icon);
+
+        quote_interact.appendChild(save_quote);
+        quote_interact.appendChild(like_quote);
+
+        quote_feed.appendChild(feed_box);
       }
     });
+  // resizes window to load the backgrond properly
+  window.dispatchEvent(new Event("resize"));
 }
 
 if (window.location.pathname == "/Saved.html") {
