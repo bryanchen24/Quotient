@@ -131,8 +131,13 @@ body {
   /* needs to be centered */
 }
 
-.quote-interact i {
-  font-size: 10em;
+.like-quote {
+  font-size: 3em;
+  width: 50px;
+}
+
+.fav-quote {
+  font-size: 3em;
 }
 
 /*===============================================================*/

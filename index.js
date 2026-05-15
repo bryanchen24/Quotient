@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 // -------------------------
-//      Look Up Quotes
+//      Loading Quotes
 // -------------------------
 // Quote of the day
 app.get("/getQOTD", async (req, res) => {
@@ -89,7 +89,34 @@ app.get("/loadQuotes", async (req, res) => {
   res.json(data);
 });
 
-// Update Database
-app.get("/saveQuote", async (req, res) => {});
+// -------------------------
+//      Look Up Quotes
+// -------------------------
 
-app.get("likeQuote", async (req, res) => {});
+// ---------------------------
+//     Interact w/ Quotes
+//      & Update Database
+// ---------------------------
+app.post("/likeQuote", async (req, res) => {
+  // const link = ``;
+  // await fetch(`${link}`);
+
+  const quote_id = req.body.quote_id;
+  const quote_text = req.body.quote_text;
+  const quote_author = req.body.quote_author;
+
+  const { data, error } = await supabase.from("liked_quotes").select();
+
+  if (error) {
+    console.log(`Error: ${error}`);
+    res.statusCode = 500;
+    res.send(error);
+  }
+
+  console.log("Received Data: ", data);
+});
+
+app.post("/saveQuote", async (req, res) => {
+  const link = ``;
+  await fetch(`${link}`);
+});

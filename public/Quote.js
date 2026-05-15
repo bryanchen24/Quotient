@@ -1,3 +1,9 @@
+// --------------------------
+//         Front End
+
+const { application } = require("express");
+
+// --------------------------
 async function quote() {
   await fetch("/getQOTD")
     .then((result) => result.json())
@@ -74,3 +80,19 @@ window.onload = function () {
   loadQotd();
   loadQuotes();
 };
+
+// change color of the like button
+function toggleLike() {
+  // color: "red"
+}
+
+// change the color of the save button
+function toggleSave() {
+  // color: "yellow"
+}
+
+// --------------------------
+//          Back End
+// --------------------------
+// add quote to database if liked
+// if quote already exists, then increase like count
