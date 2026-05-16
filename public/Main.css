@@ -40,6 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 8px;
+  text-align: center;
 }
 
 .vanta-canvas {
@@ -52,7 +53,7 @@ body {
 .quotes-section-text {
   color: white;
   text-align: center;
-  font-size: 28px;
+  font-size: 2em;
 }
 
 #quote-feed {

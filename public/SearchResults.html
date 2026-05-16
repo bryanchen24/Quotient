@@ -14,13 +14,6 @@
     ></script>
 
     <script src="Quote.js" defer></script>
-
-    <!-- Carousel (Swiper JS)
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> -->
   </head>
   <body>
     <!-- Universal Side Bar -->
@@ -49,52 +42,11 @@
 
       <!-- Displays the Quote of the Day -->
       <div class="quote-feed">
-        <!-- Quote of the Day -->
         <div class="quotes-section-text">
-          <h1>Quote of the Day</h1>
-        </div>
-        <div class="qotd-feed">
-          <h3 class="quote"></h3>
-          <h4 class="author"></h4>
-          <div class="quote-interact">
-            <div class="like-quote" onclick="toggleLike()">
-              <i class="fa-regular fa-heart" style="display: block"></i>
-              <i class="fa-solid fa-heart" style="display: none"></i>
-              <!-- to toggle bewteen them, just change the display,
-               check if one is display none, and make the other display block -->
-            </div>
-
-            <div class="fav-quote">
-              <i class="fa-regular fa-star" style="font-size: 50px"></i>
-              <!-- <i class="fa-solid fa-star"></i> -->
-            </div>
-          </div>
+          <h1>Search Results</h1>
         </div>
       </div>
     </main>
-
-    <script>
-      const swiper = new Swiper(".swiper", {
-        // Optional parameters
-        direction: "horizontal",
-        loop: true,
-
-        // If we need pagination
-        pagination: {
-          el: ".swiper-pagination",
-        },
-
-        // Navigation arrows
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-
-        autoplay: {
-          delay: "5000",
-        },
-      });
-    </script>
 
     <!-- Butterfly Background -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>

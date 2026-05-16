@@ -35,9 +35,19 @@
       <!-- Universal Search Bar -->
       <!-- Search for any keyword, and it will return both the author and quotes results -->
       <div class="nav-bar-container">
-        <form id="search-bar" onsubmit="">
+        <form
+          id="search-bar"
+          onsubmit="
+            quoteKeyword();
+            return false;
+          "
+        >
           <input type="search" id="search-bar" required />
         </form>
+      </div>
+
+      <div class="quotes-section-text">
+        <h1>Saved Quotes</h1>
       </div>
 
       <!-- Displays the Saved Quotes -->
@@ -64,6 +74,7 @@
         alignment: 30.0,
         cohesion: 22.0,
         quantity: 3.0,
+        colorMode: "lerpGradient",
       });
     </script>
   </body>
