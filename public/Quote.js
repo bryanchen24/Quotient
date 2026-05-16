@@ -136,7 +136,10 @@ async function loadQuotes() {
     });
 }
 
-if (window.location.pathname == "/Home.html") {
+if (
+  window.location.pathname == "/Home.html" ||
+  window.location.pathname == "/"
+) {
   window.onload = function () {
     loadQotd();
     loadQuotes();
