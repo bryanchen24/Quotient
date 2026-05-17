@@ -43,10 +43,12 @@ npm install @supabase/supabase-js body-parser dotenv express nodemon
 #### APIs and Libraries used
 
 FavQs (https://favqs.com/api)
+
 GET requests
 
 - Get the quote of the day: https://favqs.com/api/qotd
 - Get a quote by a keyword: https://favqs.com/api/quotes/?filter={keyword}
 - Get a list of quotes: https://favqs.com/api/quotes/?page{page_number}
-  VantaJS (https://www.vantajs.com/)
-  SwiperJS (https://swiperjs.com/)
+
+VantaJS (https://www.vantajs.com/)
+SwiperJS (https://swiperjs.com/)
