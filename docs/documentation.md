@@ -30,13 +30,26 @@ npm install @supabase/supabase-js body-parser dotenv express nodemon
 
 #### APIs and Libraries used
 
+Supabase (https://supabase.com/)
+Supabase POST requests
+
+- app.post("/likeQuote"): when users like a quote, this gets the information of the quotes (quote_id, author, and quote itself), fetches supabase, inserts this into the "liked_quotes" table
+- app.post("/saveQuote"): when user "saves" a quote, this gets the information of the quotes (quote_id, author, and quote itself), fetches supabase, inserts this into the "liked_quotes" table
+
+Supabase GET requests
+
+- app.get("/getQOTD"): returns the quote of the day (this is technically a random quote)
+- app.get("/loadSaved"): returns the list of saved quotes from the database, and dislpays them on the Saved page
+- app.get("/loadLiked"): returns the list of liked quotes from the database, and displays them on the Likes page
+
 FavQs (https://favqs.com/api)
 
-GET requests
+FavQs GET requests
 
 - Get the quote of the day: https://favqs.com/api/qotd
 - Get a quote by a keyword: https://favqs.com/api/quotes/?filter={keyword}
 - Get a list of quotes: https://favqs.com/api/quotes/?page{page_number}
+- app.get("/loadQuotes"): uses the 'https://favqs.com/api/quotes/?page{page_number}' endpoint from the FavQs API to fetch a a list of quotes, then return them and display them on the Home page
 
 VantaJS (https://www.vantajs.com/)
 
