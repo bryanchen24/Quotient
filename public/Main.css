@@ -195,3 +195,18 @@ body {
 }
 
 /*===============================================================*/
+/**************/
+/* ABOUT PAGE */
+/**************/
+#about {
+  /* border: 1px red solid; */
+  box-shadow: 0px 0px 3px rgba(34, 34, 34, 0.521);
+  border-radius: 12px;
+  height: 350px;
+  position: relative;
+  padding: 16px;
+  background-color: hsla(261, 28%, 32%, 0.863);
+  color: white;
+  margin: 32px auto;
+  width: 1000px;
+}
