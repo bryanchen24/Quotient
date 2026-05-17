@@ -12,7 +12,7 @@
 //    search quote on keyword
 //--------------------------------
 async function quoteKeyword() {
-  let keyword = document.getElementsByClassName("search-bar")[1].value;
+  let keyword = document.getElementsByClassName("search-bar")[0].value;
   // console.log(keyword);
 
   // await fetch(`/redirectSearch?keyword=${keyword}`);
@@ -27,7 +27,7 @@ async function quoteKeyword() {
     .then((resultJson) => {
       // return 10 results
       const totalQuotes = 10;
-      console.log(resultJson);
+      // console.log(resultJson);
       for (let searchResult = 0; searchResult < totalQuotes; searchResult++) {
         let quote_text = resultJson.quotes[searchResult].body;
         let quote_author = resultJson.quotes[searchResult].author;
@@ -67,8 +67,8 @@ async function quoteKeyword() {
         save_quote_icon.setAttribute("class", "fa-solid fa-star");
         save_quote.appendChild(save_quote_icon);
 
-        quote_interact.appendChild(save_quote);
         quote_interact.appendChild(like_quote);
+        quote_interact.appendChild(save_quote);
 
         feed_box.style =
           "box-shadow: 0px 0px 3px rgba(34, 34, 34, 0.521); border-radius: 12px;height: 350px; position: relative; padding: 16px; background-color: hsla(261, 28%, 32%, 0.863); color: white; margin: 32px 0px;";
