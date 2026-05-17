@@ -69,10 +69,6 @@ app.get("/searchQuoteKeyword", async (req, res) => {
   res.json(data);
 });
 
-app.get("/redirectSearch", async (req, res) => {
-  res.redirect("/SearchResults.html");
-});
-
 app.listen(port, () => {
   console.log(`App is available on port: ${port}`);
 });
