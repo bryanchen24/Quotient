@@ -22,11 +22,9 @@
       <nav>
         <ul>
           <li><a href="/Home.html">Home</a></li>
-          <!-- scroll through quotes, interact with them, and search for quotes -->
           <li><a href="/About.html">About</a></li>
-          <!-- gives the about section -->
+          <li><a href="/Liked.html">Likes</a></li>
           <li><a href="/Saved.html">Saved</a></li>
-          <!-- display the list of saved quotes -->
         </ul>
       </nav>
     </aside>
@@ -36,13 +34,13 @@
       <!-- Search for any keyword, and it will return both the author and quotes results -->
       <div class="nav-bar-container">
         <form
-          id="search-bar"
+          id="search-bar-form"
           onsubmit="
             quoteKeyword();
             return false;
           "
         >
-          <input type="search" id="search-bar" required />
+          <input type="search" class="search-bar" required />
         </form>
       </div>
 
@@ -51,7 +49,7 @@
       </div>
 
       <!-- Displays the Saved Quotes -->
-      <div id="quote-feed"></div>
+      <div class="quote-feed"></div>
     </main>
 
     <!-- Butterfly Background -->

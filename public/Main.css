@@ -11,11 +11,28 @@ body {
 /************************/
 /* MAIN CONTENT SECTION */
 /************************/
-.main-content {
-  background-color: hsl(0, 0%, 97%);
+#content-container {
+  /* background-color: hsl(0, 0%, 97%); */
   display: flex;
   flex-direction: column;
   /* flex: 3; */
+  width: 100%;
+  /* height: 100%; */
+}
+
+.main-content {
+  /* background-color: hsl(0, 0%, 97%); */
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+/* Appears when User Searches keyword */
+.search-results {
+  background-color: hsl(0, 0%, 97%);
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -31,7 +48,7 @@ body {
   text-align: center;
 }
 
-#search-bar {
+.search-bar {
   display: flex;
   width: 50vw;
   height: 3em;
@@ -56,18 +73,18 @@ body {
   font-size: 2em;
 }
 
-#quote-feed {
+.quote-feed {
   /* border: 1px black solid; */
   flex: 3;
   width: 500px;
-  /* max-width: 500px; */
+  /* max-width: 500px;  */
   margin: 25px auto;
   height: 100vh;
 }
 
 .feed-box {
   /* border: 1px red solid; */
-  box-shadow: 0px 0px 3px rgba(34, 34, 34, 0.521); /* creates soft border */
+  box-shadow: 0px 0px 3px rgba(34, 34, 34, 0.521);
   border-radius: 12px;
   height: 350px;
   position: relative;
@@ -75,7 +92,7 @@ body {
   background-color: hsla(261, 28%, 32%, 0.863);
   color: white;
   margin: 32px 0px;
-}
+} /* creates soft border */
 
 .qotd-feed {
   /* border: 1px red solid; */

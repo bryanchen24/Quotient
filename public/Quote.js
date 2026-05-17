@@ -1,30 +1,33 @@
 // --------------------------
 //         Front End
 // --------------------------
-async function quote() {
-  await fetch("/getQOTD")
-    .then((result) => result.json())
-    .then((resultJson) => {
-      console.log(resultJson.quote.body);
-    });
-}
+// async function quote() {
+//   await fetch("/getQOTD")
+//     .then((result) => result.json())
+//     .then((resultJson) => {
+//       console.log(resultJson.quote.body);
+//     });
+// }
 //--------------------------------
 //    search quote on keyword
 //--------------------------------
 async function quoteKeyword() {
-  let keyword = document.getElementById("search-bar").value;
-  console.log(keyword);
+  let keyword = document.getElementsByClassName("search-bar")[1].value;
+  // console.log(keyword);
 
-  window.location.pathname = "./SearchResults.html";
+  // await fetch(`/redirectSearch?keyword=${keyword}`);
 
-  const quote_feed = document.getElementById("quote-feed");
+  const search_feed = document.getElementsByClassName("quote-feed")[0];
+
+  const quote_feed = document.createElement("div");
+  quote_feed.setAttribute("class", "quote-feed");
 
   await fetch(`/searchQuoteKeyword?keyword=${keyword}`)
     .then((result) => result.json())
     .then((resultJson) => {
       // return 10 results
       const totalQuotes = 10;
-
+      console.log(resultJson);
       for (let searchResult = 0; searchResult < totalQuotes; searchResult++) {
         let quote_text = resultJson.quotes[searchResult].body;
         let quote_author = resultJson.quotes[searchResult].author;
@@ -35,13 +38,13 @@ async function quoteKeyword() {
 
         let quote = document.createElement("h3");
         quote.setAttribute("class", "quote");
-        quote.innerHTML = responseJson[quote_box].quote_text;
-        quote.setAttribute("quote_id", `${responseJson[quote_box].quote_id}`);
+        quote.innerHTML = quote_text;
+        quote.setAttribute("quote_id", `${quote_id}`);
         feed_box.appendChild(quote);
 
         let author = document.createElement("h4");
         author.setAttribute("class", "author");
-        author.innerHTML = responseJson[quote_box].quote_author;
+        author.innerHTML = quote_author;
         feed_box.appendChild(author);
 
         let quote_interact = document.createElement("div");
@@ -66,10 +69,41 @@ async function quoteKeyword() {
 
         quote_interact.appendChild(save_quote);
         quote_interact.appendChild(like_quote);
+
+        feed_box.style =
+          "box-shadow: 0px 0px 3px rgba(34, 34, 34, 0.521); border-radius: 12px;height: 350px; position: relative; padding: 16px; background-color: hsla(261, 28%, 32%, 0.863); color: white; margin: 32px 0px;";
+
+        search_feed.append(feed_box);
       }
-      quote_feed.appendChild(feed_box);
-      // console.log(resultJson.quotes[0]);
     });
+
+  document.getElementsByClassName("main-content")[0].style.display = "none";
+  document.getElementsByClassName("search-results")[0].style.display = "flex";
+
+  // load the background
+  loadBackground();
+  window.dispatchEvent(new Event("resize"));
+  console.log("done searching");
+}
+
+function loadBackground() {
+  VANTA.BIRDS({
+    el: ".search-results",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    backgroundColor: 0x141414,
+    color2: 0xffff,
+    speedLimit: 6.0,
+    separation: 93.0,
+    alignment: 30.0,
+    cohesion: 22.0,
+    quantity: 3.0,
+  });
 }
 
 // loads the quote of the day
@@ -245,7 +279,7 @@ async function toggleSave(star) {
 // add quote to database if liked
 // if quote already exists, then increase like count
 async function loadSaved() {
-  const quote_feed = document.getElementById("quote-feed");
+  const quote_feed = document.getElementsByClassName("quote-feed")[0];
 
   await fetch("/loadSaved")
     .then((response) => response.json())
@@ -286,10 +320,11 @@ async function loadSaved() {
 
         let save_quote_icon = document.createElement("i");
         save_quote_icon.setAttribute("class", "fa-solid fa-star");
+        save_quote_icon.style.color = "yellow";
         save_quote.appendChild(save_quote_icon);
 
-        quote_interact.appendChild(save_quote);
         quote_interact.appendChild(like_quote);
+        quote_interact.appendChild(save_quote);
 
         quote_feed.appendChild(feed_box);
       }
@@ -300,4 +335,63 @@ async function loadSaved() {
 
 if (window.location.pathname == "/Saved.html") {
   window.onload = loadSaved();
+}
+
+async function loadLiked() {
+  const quote_feed = document.getElementsByClassName("quote-feed")[0];
+
+  await fetch("/loadLiked")
+    .then((response) => response.json())
+    .then((responseJson) => {
+      // console.log(responseJson);
+
+      const total_quotes = responseJson.length;
+      for (let quote_box = 0; quote_box < total_quotes; quote_box++) {
+        let feed_box = document.createElement("div");
+        feed_box.setAttribute("class", "feed-box");
+
+        let quote = document.createElement("h3");
+        quote.setAttribute("class", "quote");
+        quote.innerHTML = responseJson[quote_box].quote_text;
+        quote.setAttribute("quote_id", `${responseJson[quote_box].quote_id}`);
+        feed_box.appendChild(quote);
+
+        let author = document.createElement("h4");
+        author.setAttribute("class", "author");
+        author.innerHTML = responseJson[quote_box].quote_author;
+        feed_box.appendChild(author);
+
+        let quote_interact = document.createElement("div");
+        quote_interact.setAttribute("class", "quote-interact");
+        feed_box.appendChild(quote_interact);
+
+        let like_quote = document.createElement("like-quote");
+        like_quote.setAttribute("class", "like-quote");
+        like_quote.setAttribute("onclick", "toggleLike(this)");
+
+        let like_quote_icon = document.createElement("i");
+        like_quote_icon.setAttribute("class", "fa-solid fa-heart");
+        like_quote_icon.style.color = "red";
+        like_quote.appendChild(like_quote_icon);
+
+        let save_quote = document.createElement("like-quote");
+        save_quote.setAttribute("class", "fav-quote");
+        save_quote.setAttribute("onclick", "toggleSave(this)");
+
+        let save_quote_icon = document.createElement("i");
+        save_quote_icon.setAttribute("class", "fa-solid fa-star");
+        save_quote.appendChild(save_quote_icon);
+
+        quote_interact.appendChild(like_quote);
+        quote_interact.appendChild(save_quote);
+
+        quote_feed.appendChild(feed_box);
+      }
+    });
+  // resizes window to load the backgrond properly
+  window.dispatchEvent(new Event("resize"));
+}
+
+if (window.location.pathname == "/Liked.html") {
+  window.onload = loadLiked();
 }

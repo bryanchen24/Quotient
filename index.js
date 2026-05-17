@@ -69,6 +69,10 @@ app.get("/searchQuoteKeyword", async (req, res) => {
   res.json(data);
 });
 
+app.get("/redirectSearch", async (req, res) => {
+  res.redirect("/SearchResults.html");
+});
+
 app.listen(port, () => {
   console.log(`App is available on port: ${port}`);
 });
@@ -160,6 +164,21 @@ app.get("/loadSaved", async (req, res) => {
   console.log("Returning saved quotes");
 
   const { data, error } = await supabase.from("saved_quotes").select();
+
+  if (error) {
+    console.log(`Error: ${error}`);
+    res.statusCode = 500;
+    res.send(error);
+  } else {
+    console.log("Recieved Data:", data.length);
+    res.json(data);
+  }
+});
+
+app.get("/loadLiked", async (req, res) => {
+  console.log("Returning saved quotes");
+
+  const { data, error } = await supabase.from("liked_quotes").select();
 
   if (error) {
     console.log(`Error: ${error}`);
