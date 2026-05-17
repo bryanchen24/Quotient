@@ -51,4 +51,53 @@ GET requests
 - Get a list of quotes: https://favqs.com/api/quotes/?page{page_number}
 
 VantaJS (https://www.vantajs.com/)
+
+- Used to add an animated background
+
 SwiperJS (https://swiperjs.com/)
+
+- Used to create the carousel for discovering quotes on the homepage
+
+#### Bugs and Future Development
+
+##### Bugs
+
+Bug: Unable to search consecutively
+
+Accomodation: When wanting to search again, click on the Home tab, and then search again
+
+Bug: Unable to remove quotes from database (Liked or Saved)
+
+Accomodation: Go into database (Supabase) and manually remove the quotes as to not have too many quotes saved at a time.
+
+Bug:
+
+##### Future
+
+Currently, the search function will simply hide the quote of the day and the quotes discovery, and just reveals the searched quotes (only limited to 10 quotes).
+
+Next Step: Implement redirects to go to a dedicated search page to display all of the quotes. Additioanlly, display as many quotes as possible, and consider adding a button to load more quotes if needed.
+
+The background for the About page is not fully filled. When changing the css to make the HTML have 100% height, this affects the other pages to not properly fill each background.
+
+Next Step: Modify the background th be filled for each pages.
+
+When using the search button, you are not able to search with another keyword after you are on the "search page". That is why the search bar is only on the Home page.
+
+Next Step: Allow searches to be back to back without having to first go to the Home page to search again.
+
+When liking and saving quotes, you can continue to press it even if it has already saved. This makes a request in the backend to save the quote, but since it is stored by the id, it must be unique and can't be added again.
+
+Next Step: Toggle between liking/saving and unliking/unsavin respectively to prevent this from happening. Additionally, when the quotes are on their respective pages (likes or saved), show whether or not each quote was liked or saved rather than just one or the other.
+
+There is no functionality to remove liked and saved quotes without having to go into Supabase.
+
+Next Step: Implement a feature to like/save and unlike/unsave without having to go into Supabase. This will allow users to toggle bewteen their liked and saved quotes. Additionally, add some animations when it is liked/saved.
+
+When there are a bunch of quotes added to the liked or saved pages, it can become a bit laggy and it also stretches the background.
+
+Next Step: Create a background that is static, rather than moving with the scroll. This would also require changing the scales depending on the amount of content.
+
+When moving to the liked or saved pages, there is a split second that the page doesn't fill up with the quotes and is not too pleasing to look at.
+
+Next Step: Create a loading screen when moving to each of these pages or add a delay. Ideally, create a skeleton leading screen.
