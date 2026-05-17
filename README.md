@@ -1,5 +1,6 @@
 # Quotient
 
+Link to GitHub: https://github.com/bryanchen24/Quotient
 Link to Website (hosted by Vercel): https://quotient-kohl.vercel.app/
 
 ## Description
